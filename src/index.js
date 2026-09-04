@@ -73,5 +73,5 @@ async function handleContact(request, env) {
     console.log("resend error", res.status, await res.text());
     return bad("We could not send that just now. Please call (877) 704-1147.", 502);
   }
-  return Response.json({ ok: true });
+      return bad("We could not send that just now.", 502);
 }
