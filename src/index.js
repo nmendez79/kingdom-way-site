@@ -3,6 +3,13 @@ export default {
     const url = new URL(request.url);
 
     if (url.pathname === "/api/contact") {
+       if (request.method === "GET" && url.searchParams.get("check") === "1") {
+        return Response.json({
+          RESEND_API_KEY: env.RESEND_API_KEY ? "present" : "MISSING",
+          MAIL_FROM: env.MAIL_FROM || "MISSING",
+          MAIL_TO: env.MAIL_TO ? "present" : "MISSING",
+        });
+      }
       if (request.method !== "POST") {
         return new Response("Method not allowed", { status: 405 });
       }
