@@ -30,7 +30,7 @@ export async function onRequestPost({ request, env }) {
     "What is stuck:",
     note || "(not provided)",
     "",
-    `Sent from kingdomwayenterprises.com at ${new Date().toISOString()}`,
+   `Sent from kingdomeent.com at ${new Date().toISOString()}`,
   ].join("\n");
 
   const res = await fetch("https://api.resend.com/emails", {
