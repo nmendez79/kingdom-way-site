@@ -1,0 +1,17 @@
+{
+  // KingdomWay site. Deploys over your existing "kingdom-way-site" Worker, which
+  // already serves kingdomeent.com, so no DNS or email changes are needed.
+  "name": "kingdom-way-site",
+  "main": "server/server.js",
+  "compatibility_date": "2025-05-01",
+  "compatibility_flags": ["nodejs_compat"],
+  // Keeps the settings you already set in the Cloudflare dashboard (MAIL_FROM, MAIL_TO).
+  // Your RESEND_API_KEY secret is never touched by a deploy.
+  "keep_vars": true,
+  "observability": { "enabled": true },
+  "assets": {
+    "directory": "./client",
+    "binding": "ASSETS",
+    "not_found_handling": "none"
+  }
+}
